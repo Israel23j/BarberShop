@@ -1,0 +1,5 @@
+/backend/database/volumes_postgres/
+/backend/__pycache__/
+/backend/database/__pycache__
+frontend/.DS_Store
+.DS_Store
