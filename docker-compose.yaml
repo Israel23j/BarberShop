@@ -10,12 +10,6 @@ services:
       - "./Backend/database/database_init.sql:/docker-entrypoint-initdb.d/database_init.sql"
     ports:
       - '5444:5432'
-    #   - '5432:5432'
-    #healthcheck:
-    #  test: ["CMD-SHELL", "pg_isready"]
-    #  interval: 10s
-    #  timeout: 5s
-    #  retries: 5
     networks: 
       - mynetwork
   
@@ -28,22 +22,21 @@ services:
       - ./backend:/app
     ports:
       - '8000:80'
-    #   - '7000:80'
-    #depends_on:
-    #  database:
-    #    condition: service_healthy
     networks: 
       - mynetwork
 
-#  web:
-#    build: 
-#      context: ./Front
-#      dockerfile: Dockerfile
-#    container_name: miapp-nginx
-#    ports:
-#      - "80:80"
-#    networks: 
-#      - mynetwork
+  frontend:
+    container_name: miapp-nginx
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    
+    ports:
+      - "80:80"
+    networks: 
+      - mynetwork
+
+
 networks:
   mynetwork:
     driver: bridge

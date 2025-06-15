@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Formulario Peluquería</title>
+  <title>BookMe Barber Shop</title>
   <!--<link href="../src/output.css" rel="stylesheet">-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -11,20 +11,22 @@
     
     <div class="bg-[url('./../img/background_nav.jpeg')] bg-cover bg-center h-screen w-screen">
           <!-- NAV -->
-        <nav id="nav" class="flex items-center justify-between fixed top-0 left-0 w-full z-50 text-white transition-colors duration-2000 bg-transparent">
+        <nav id="nav" class="flex items-center justify-between fixed top-0 left-0 w-full z-50 text-white transition-colors duration-2000 bg-black px-4 py-4">
+
             <!-- Logo -->
             <div class="flex items-center">
-            <img src="./../img/logo.png" alt="Logo" class="h-10 w-auto">
+            <img src="./../img/icono.png" alt="Logo" class="h-8 lg:h-15 w-auto ml-5">
             </div>
 
             <!-- Menu escritorio -->
             <ul class="hidden md:flex space-x-8 text-white font-semibold">
-            <li class="m-0 flex items-center justify-center p-10 mr-30 hover:"><a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a></li>
-            <li class="m-0 flex items-center justify-center p-10 mr-30"><a href="#reservas" class="hover:text-yellow-400 transition">Reservas</a></li>
+            <li class=" flex items-center justify-center p-6 mr-10 xl:mr-30 hover:text-yellow-400 transition"><a href="#servicios">Servicios</a></li>
+            <li class=" flex items-center justify-center p-6 mr-10 xl:mr-30 hover:text-yellow-400 transition"><a href="./reservas.html">Reservas</a></li>
             </ul>
 
             <!-- Botón hamburguesa móvil -->
-            <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+            <button id="menu-btn" class="md:hidden focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" aria-label="Toggle menu">
+
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" 
                 viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -34,115 +36,125 @@
             </button>
 
         </nav>
-        
 
         <!-- Menú desplegable móvil -->
-        <div id="menu" class="hidden flex-col items-center fixed top-16 right-0 w-full md:hidden z-40 bg-black bg-opacity-70">
-            <a href="#servicios" class="block w-full text-center py-4 text-white font-semibold hover:bg-yellow-500 transition">Servicios</a>
-            <a href="#reservas" class="block w-full text-center py-4 text-white font-semibold hover:bg-yellow-500 transition">Reservas</a>
+        <div id="menu" class="hidden flex-col items-center bg-white text-gray-800 fixed top-16 right-0 w-full md:hidden z-40 shadow-md rounded-b-xl transition-all duration-300">
+        <a href="#servicios" class="block w-full text-center py-4 font-semibold hover:bg-yellow-100 hover:text-black transition">Servicios</a>
+        <a href="./reservas.html" class="block w-full text-center py-4 font-semibold hover:bg-yellow-100 hover:text-black transition">Reservas</a>
         </div>
 
-        <!-- Menú desplegable móvil -->
-        <div id="menu" class="hidden flex-col items-center bg-black bg-opacity-70 fixed top-16 right-0 w-full md:hidden z-40">
-            <a href="#servicios" class="block w-full text-center py-4 text-white font-semibold hover:bg-yellow-500 transition">Servicios</a>
-            <a href="#reservas" class="block w-full text-center py-4 text-white font-semibold hover:bg-yellow-500 transition">Reservas</a>
-        </div>
         <!-- Contenido opcional centrado -->
         <div class="flex flex-col items-center justify-end h-full">
-            <h1 class="text-white text-3xl font-bold p-4 rounded pb-40 lg:text-6xl lg:pb-100">
-                46Art Barber Shop
+            <h1 class="text-white text-3xl font-bold p-4 rounded pb-40 lg:text-6xl lg:pb-50 xl:pb-70">
+                BookMe Barber Shop
             </h1>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 w-full p-15 font-serif xl:p-25 xl:text-3xl xl:font-sefir">
-        <p class="text-center">Services</p>
+    <div id="servicios" class="grid grid-cols-1 w-full p-15 font-serif text-xl xl:p-25 xl:text-3xl xl:font-sefir">
+        <p class="text-center">Nuestros servicios</p>
     </div>
 
     <div class="w-full m-0">
-        <div class="grid grid-cols-1 xl:grid-cols-3 w-full group">
-            <div class="grid grid-cols-1 order-2 xl:col-span-2 xl:col-start-1 xl:col-end-3 xl:order-none p-20 h-100 place-items-center bg-yellow-50 w-full h-full 
+        <div class="grid grid-cols-1 xl:grid-cols-3 m-8  group">
+            <div class="grid grid-cols-1 order-2 xl:col-span-2 xl:col-start-1 xl:col-end-3 xl:order-none p-20 h-100 place-items-center bg-[#eae6ca] w-full h-full rounded-b-2xl xl:rounded-b-none xl:rounded-l-2xl xl:rounded-bl-2xl 
             transition-transform duration-300 
             hover:shadow-xl 
             overflow-hidden">
             <p class=" pb-3 text-xl font-bold">Corte de Cabello</p>
             <p class="text-base text-gray-700 max-w-prose">
-                Servicio personalizado de corte que se adapta a tus facciones, estilo de vida y tendencias actuales. Nuestros estilistas profesionales analizan la forma de tu rostro y textura capilar para ofrecerte un look moderno, equilibrado y fácil de mantener.
+                Servicio personalizado de corte que se adapta a tus facciones, estilo de vida y tendencias actuales. Nuestros estilistas profesionales analizan la forma de tu rostro y textura capilar para ofrecerte un look moderno, equilibrado y fácil de mantener.<br>Precio - 15 euros | Duracion - 30 minutos
             </p>
+            <a data-id="1" data-servicio="Corte de cabello" href="./servicesForm.html" class="boton-reserva mt-6 inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-400 transition">Reservar</a>
             </div>
             <div class="grid grid-cols-1 order-1 xl:col-span-1 xl:col-start-3 xl:col-end-4 xl:order-none p-0 m-0">
-                <img src="./../img/corte_cabello.webp" class="w-full h-full object-cover
+                <img src="./../img/corte_cabello.webp" class="w-full h-full rounded-t-2xl xl:rounded-t-none xl:rounded-r-2xl xl:rounded-br-2xl object-cover
                                                                 transition-[filter] duration-1000 ease-in-out 
                                                                 group-hover:blur-sm 
                                                                 [will-change:filter]">
             </div>
         </div>
-        <div class="grid grid-cols-1 xl:grid-cols-3 w-full group">
-            <div class="grid grid-cols-1 order-3 xl:col-span-1 xl:col-start-1 xl:col-end-2 xl:order-none p-0 m-0 ">
-                <img src="./../img/peinado.jpg" class="w-full h-full object-cover
+
+
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 group m-8">
+            <div class="grid grid-cols-1 order-3 xl:col-span-1 xl:col-start-1 xl:col-end-2 xl:order-none p-0 m-0">
+                <img src="./../img/peinado.jpg" class="w-full h-full rounded-t-2xl xl:rounded-t-none xl:rounded-l-2xl xl:rounded-bl-2xl object-cover
                                                                 transition-[filter] duration-1000 ease-in-out 
                                                                 group-hover:blur-sm 
                                                                 [will-change:filter]">
             </div>
-            <div class="grid grid-cols-1 order-4 xl:col-span-2 xl:col-start-2 xl:col-end-4 xl:order-none p-20 h-100 place-items-center w-full h-full
+            <div class="grid grid-cols-1 order-4 xl:col-span-2 xl:col-start-2 xl:col-end-4 xl:order-none p-20 h-100 place-items-center w-full h-full bg-[#eae6ca] rounded-b-2xl xl:rounded-b-none xl:rounded-r-2xl xl:rounded-br-2xl
             transition-transform duration-300 
             hover:shadow-xl 
             overflow-hidden">
                 <p class="pb-3 text-xl font-bold">Peinado</p>
                 <p class="text-base text-gray-700 max-w-prose">
-                    Ideal para eventos especiales o para realzar tu estilo diario, este servicio incluye el diseño y ejecución de peinados que van desde recogidos elegantes hasta ondas sueltas o estilos más estructurados. Utilizamos técnicas que aseguran duración, volumen y un acabado impecable.
+                    Ideal para eventos especiales o para realzar tu estilo diario, este servicio incluye el diseño y ejecución de peinados que van desde recogidos elegantes hasta ondas sueltas o estilos más estructurados. Utilizamos técnicas que aseguran duración, volumen y un acabado impecable.<br>Precio - 25 euros | Duracion - 45 minutos
                 </p>
-
+            <a data-id="2" data-servicio="Peinado" href="./servicesForm.html" class="boton-reserva mt-6 inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-400 transition">Reservar</a>
             </div>
         </div>
-        <div class="grid grid-cols-1 xl:grid-cols-3 w-full group">
-            <div class="grid grid-cols-1 order-6 xl:col-span-2 xl:col-start-1 xl:col-end-3 xl:order-none p-20 h-100 place-items-center bg-yellow-50 w-full h-full 
+
+
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 group m-8">
+            <div class="grid grid-cols-1 order-6 xl:col-span-2 xl:col-start-1 xl:col-end-3 xl:order-none p-20 h-100 place-items-center bg-[#eae6ca] w-full h-full rounded-b-2xl xl:rounded-b-none xl:rounded-l-2xl xl:rounded-bl-2xl
             transition-transform duration-300 
             hover:shadow-xl 
             overflow-hidden">
                 <p class="pb-3 text-xl font-bold">Coloración</p>
                 <p class="text-base text-gray-700 max-w-prose">
-                    Transforma tu imagen con una coloración profesional. Ya sea para cubrir canas, intensificar tu tono natural o probar un cambio radical, empleamos productos de alta calidad que cuidan la fibra capilar. Técnicas como balayage, mechas, o color completo están disponibles según tus necesidades.
+                    Transforma tu imagen con una coloración profesional. Ya sea para cubrir canas, intensificar tu tono natural o probar un cambio radical, empleamos productos de alta calidad que cuidan la fibra capilar. Técnicas como balayage, mechas, o color completo están disponibles según tus necesidades.<br>Precio - 40 euros | Duracion - 90 minutos
                 </p>
-
+            <a data-id="3" data-servicio="Coloración" href="./servicesForm.html" class="boton-reserva mt-6 inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-400 transition">Reservar</a>
             </div>
             <div class="grid grid-cols-1 order-5 xl:col-span-1 xl:col-start-3 xl:col-end-4 xl:order-none p-0 m-0">
-                <img src="./../img/coloracion.jpg" class="w-full h-full object-cover
+                <img src="./../img/coloracion.jpg" class="w-full h-full rounded-t-2xl xl:rounded-t-none xl:rounded-r-2xl xl:rounded-br-2xl object-cover
                                                                 transition-[filter] duration-1000 ease-in-out 
                                                                 group-hover:blur-sm 
                                                                 [will-change:filter]">
             </div>
         </div>
-        <div class="grid grid-cols-1 xl:grid-cols-3 w-full group">
+
+
+
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 m-8 group">
             <div class="grid grid-cols-1 order-7 xl:col-span-1 xl:col-start-1 xl:col-end-2 xl:order-none p-0 m-0">
-                <img src="./../img/alisado.webp" class="w-full h-full object-cover
+                <img src="./../img/alisado.webp" class="w-full h-full rounded-t-2xl xl:rounded-t-none xl:rounded-l-2xl xl:rounded-bl-2xl object-cover
                                                                 transition-[filter] duration-1000 ease-in-out 
                                                                 group-hover:blur-sm 
                                                                 [will-change:filter]">
             </div>
-            <div class="grid grid-cols-1 order-8 xl:col-span-2 xl:col-start-2 xl:col-end-4 xl:order-none p-20 h-100 place-items-center w-full h-full 
+            <div class="grid grid-cols-1 order-8 xl:col-span-2 xl:col-start-2 xl:col-end-4 xl:order-none p-20 h-100 place-items-center bg-[#eae6ca] w-full h-full rounded-b-2xl xl:rounded-b-none xl:rounded-r-2xl xl:rounded-br-2xl
             transition-transform duration-300 
             hover:shadow-xl 
             overflow-hidden">
                 <p class="pb-3 text-xl font-bold">Alisado</p>
                 <p class="text-base text-gray-700 max-w-prose">
-                    Tratamiento técnico que reduce el frizz y alisa el cabello de manera duradera. Perfecto para quienes buscan comodidad y control en su rutina diaria. Utilizamos productos profesionales que suavizan la estructura capilar sin dañar su integridad, dejando el cabello liso, brillante y manejable.
+                    Tratamiento técnico que reduce el frizz y alisa el cabello de manera duradera. Perfecto para quienes buscan comodidad y control en su rutina diaria. Utilizamos productos profesionales que suavizan la estructura capilar sin dañar su integridad, dejando el cabello liso, brillante y manejable.<br>Precio - 60 euros | Duracion - 120 minutos
                 </p>
+            <a data-id="4" data-servicio="Alisado" href="./servicesForm.html" class="boton-reserva mt-6 inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-400 transition">Reservar</a>                
             </div>
         </div>
-        <div class="grid grid-cols-1 xl:grid-cols-3 w-full group">
-            <div class="grid grid-cols-1 order-10 xl:col-span-2 xl:col-start-1 xl:col-end-3 xl:order-none p-20 h-100 place-items-center bg-yellow-50 w-full h-full 
+
+
+
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 m-8 group">
+            <div class="grid grid-cols-1 order-10 xl:col-span-2 xl:col-start-1 xl:col-end-3 xl:order-none p-20 h-100 place-items-center bg-[#eae6ca] w-full h-full w-full h-full rounded-b-2xl xl:rounded-b-none xl:rounded-l-2xl xl:rounded-bl-2xl
             transition-transform duration-300 
             hover:shadow-xl 
             overflow-hidden">
             <p class="pb-5 text-xl font-bold">Tratamiento Capilar</p>
             <p class="text-base text-gray-700 max-w-prose">
-                Servicio enfocado en la salud del cabello, ideal para revitalizar melenas dañadas, secas o quebradizas. Aplicamos fórmulas nutritivas que penetran la fibra capilar para fortalecer, hidratar y devolver el brillo natural. Recomendado como mantenimiento regular para un cabello sano y resistente.
+                Servicio enfocado en la salud del cabello, ideal para revitalizar melenas dañadas, secas o quebradizas. Aplicamos fórmulas nutritivas que penetran la fibra capilar para fortalecer, hidratar y devolver el brillo natural. Recomendado como mantenimiento regular para un cabello sano y resistente.<br>Precio - 35 euros | Duracion - 60 minutos
             </p>
-
+            <a data-id="5" data-servicio="Tratamiento capilar" href="./servicesForm.html" class="boton-reserva mt-6 inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-400 transition">Reservar</a>
             </div>
             <div class="grid grid-cols-1 order-9 xl:col-span-1 xl:col-start-3 xl:col-end-4 xl:order-none p-0 m-0">
-                <img src="./../img/tratamiento.webp" class="w-full h-full object-cover
+                <img src="./../img/tratamiento.webp" class="w-full h-full rounded-t-2xl xl:rounded-t-none xl:rounded-r-2xl xl:rounded-br-2xl object-cover
                                                                 transition-[filter] duration-1000 ease-in-out 
                                                                 group-hover:blur-sm 
                                                                 [will-change:filter]">
@@ -152,32 +164,47 @@
 
 
     </div>
-    <div class="grid grid-cols-1 p-10 place-items-center">
-        <p class="text-center">Footer</p>
+    <footer class="bg-gray-900 text-white py-6 mt-5">
+    <div class="container mx-auto text-center">
+        <p class="text-sm">&copy; <span class="font-semibold">BookMe BarberShop</span> — Todos los derechos reservados</p>
     </div>
+    </footer>
+
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('menu');
-        const nav = document.getElementById('nav');
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('menu-btn');
+            const menu = document.getElementById('menu');
+            const nav = document.getElementById('nav');
 
-        btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        });
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
 
-        window.addEventListener('scroll', () => {
-        if(window.scrollY > 20) {
-            // Añadir fondo usando clases Tailwind
-            nav.classList.remove('bg-transparent');
-            nav.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
-        } else {
-            // Volver transparente
-            nav.classList.add('bg-transparent');
-            nav.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
-        }
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 20) {
+                    // Añadir fondo usando clases Tailwind
+                    nav.classList.remove('bg-transparent');
+                    nav.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
+                } else {
+                    // Volver transparente
+                    nav.classList.add('bg-transparent');
+                    nav.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
+                }
+            });
+
+            const botones_reserva = document.querySelectorAll('.boton-reserva')
+            botones_reserva.forEach(boton => {
+                boton.addEventListener("click",()=>{
+                const servicio_id = boton.dataset.id;
+                const servicio = boton.dataset.servicio;
+                localStorage.setItem('id_servicio',servicio_id);
+                localStorage.setItem('servicio',servicio);
+                })
+            })
+
+        
         });
-    });
-    </script>
+        </script>
 
 </body>
 </html>

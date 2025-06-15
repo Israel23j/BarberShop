@@ -1,63 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Reservas</title>
-    <script src="./../javascript/main.js"></script>
-    <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background-color: #f9f9f9;
-    }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <title>Reservas</title>
+    </head>
+    <body class="font-serif">
+    <div class="bg-[url('./../img/background_nav.jpeg')] bg-cover bg-center h-screen w-screen">
+        <nav id="nav" class="flex items-center justify-between fixed top-0 left-0 w-full z-50 text-white transition-colors duration-2000 bg-black px-4 py-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+            <img src="./../img/icono.png" alt="Logo" class="h-12 lg:h-20 w-auto">
+            </div>
+ 
 
-    h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+            <!-- Menu escritorio -->
+            <ul class="hidden md:flex space-x-8 text-white font-semibold">
+            <li class="flex items-center justify-center p-6 mr-10 xl:mr-30 hover:text-yellow-400 transition"><a href="./index.html">Servicios</a></li>
+            <li class="flex items-center justify-center p-6 mr-10 xl:mr-30 hover:text-yellow-400 transition"><a href="./reservas.html">Reservas</a></li>
+            </ul>
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-    }
+            <!-- Botón hamburguesa móvil -->
+            <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" 
+                viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            </button>
 
-    th, td {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      text-align: left;
-    }
+        </nav>
 
-    th {
-      background-color: #f0f0f0;
-    }
+        <!-- Menú desplegable móvil -->
+        <div id="menu" class="hidden flex-col items-center bg-white text-gray-800 fixed top-16 right-0 w-full md:hidden z-40 shadow-md rounded-b-xl transition-all duration-300">
+            <a href="./index.html" class="block w-full text-center py-4 font-semibold hover:bg-yellow-100 hover:text-black transition">Servicios</a>
+            <a href="./reservas.html" class="block w-full text-center py-4 font-semibold hover:bg-yellow-100 hover:text-black transition">Reservas</a>
+        </div>
 
-    .btn {
-      padding: 0.5rem 1rem;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 0.25rem;
-      cursor: pointer;
-    }
 
-    .btn:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
-<body>
-
-      <div class="buscador">
-        <input type="number" id="campo-busqueda" placeholder="Buscar...">
-        <button id="boton-buscar">Buscar</button>
+            <!-- Contenido opcional centrado -->
+        <div class="flex flex-col items-center justify-end h-full">
+            <h1 class="text-white text-3xl font-bold p-4 rounded pb-40 lg:text-6xl lg:pb-50 xl:pb-70">
+                Reservas
+            </h1>
+        </div>
+    </div>
+    <div class="lista_reservas h-30">
+        <div class="flex flex-col mt-20 sm:flex-row items-center gap-4 w-full max-w-sm mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl">
+            <input
+                type="number"
+                id="campo-busqueda"
+                placeholder="Introduzca su código de cliente"
+                class="flex-grow w-full border border-gray-300 rounded-lg px-4 py-2 text-base xl:text-lg
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-500">
+            <button
+                id="boton-buscar"
+                class="w-full sm:w-auto bg-black text-white px-6 py-2 rounded-lg text-base xl:text-lg
+                    hover:bg-gray-400 transition">
+                Buscar
+            </button>
+        </div>
     </div>
 
-    <div id="lista_reservas">
+    <div id="lista_reservas" >
 
     </div>
+    <footer class="bg-gray-900 text-white py-6 mt-5">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">&copy; <span class="font-semibold">BookMe BarberShop</span> — Todos los derechos reservados</p>
+        </div>
+    </footer>
 
-</body>
+
+        <div id="lista_reservas">
+
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.getElementById('menu-btn');
+                const menu = document.getElementById('menu');
+                const nav = document.getElementById('nav');
+
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+
+                window.addEventListener('scroll', () => {
+                    if(window.scrollY > 20) {
+                        // Añadir fondo usando clases Tailwind
+                        nav.classList.remove('bg-transparent');
+                        nav.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
+                    } else {
+                        // Volver transparente
+                        nav.classList.add('bg-transparent');
+                        nav.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
+                    }
+                });
+            })
+
+        </script>
+        <script src="./../javascript/main.js"></script>
+    </body>
 </html>

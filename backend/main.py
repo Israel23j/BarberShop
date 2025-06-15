@@ -16,15 +16,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-#Implementare la función login para poder registrarse y hacer login
-
-#@app.post("/clientes")
-#def crear_cliente(cliente: Cliente, db: Database = Depends(get_db)):
-#    try:
-#        db.crear_cliente(cliente)
-#        return {"mensaje": "Cliente creado exitosamente"}
-#    except psycopg2.Error as e:
-#        raise HTTPException(status_code=400, detail=str(e))
 
 @app.get("/clientes/{id}")
 def obtener_cliente(id: int, db: Database = Depends(get_db)):
@@ -66,7 +57,7 @@ def crear_reserva(
             hora_reserva=hora_reserva
             )
             reserva_id = db.crear_reserva(datosReserva)
-            return {"mensaje": f"Le recordamos que su código de cliente es el {cliente_id} y su código de resrva es {reserva_id}"}
+            return {"mensaje": f"Le recordamos que su código de cliente es el {cliente_id}"}
     except psycopg2.Error as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -82,15 +73,15 @@ def cancelar_reserva(id: int, db: Database = Depends(get_db)):
 def listar_reservas(cliente_id: int, db: Database = Depends(get_db)):
     try:
         datos = db.obtener_reservas_cliente(cliente_id)
-        print(datos)
-        
         reservas = [{'id_reserva' : row['id'],
                     'empleado' : row['empleado'],
                     'servicio' : row['servicio'],
                     'fecha' : row['fecha_reserva'],
-                    'hora' : row['hora_reserva']} 
+                    'hora' : row['hora_reserva'],
+                    'cliente' :row['nombre_cliente'],
+                    'apellido_cliente' : row['apellido_cliente']}
                     for row in datos]
-        
+    
         return reservas
     except psycopg2.Error as e:
         raise HTTPException(status_code=400, detail=str(e))

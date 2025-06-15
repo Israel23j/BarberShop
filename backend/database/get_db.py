@@ -64,9 +64,10 @@ class Database:
     #    self.cur.execute(f"""SELECT id FROM clientes WHERE correo '{cliente.correo}'""")
 
     def obtener_reservas_cliente(self, cliente_id: int):
-        self.cur.execute(f"""SELECT reservas.id, empleados.nombre AS empleado, servicios.nombre AS servicio, reservas.fecha_reserva, reservas.hora_reserva
+        self.cur.execute(f"""SELECT reservas.id, empleados.nombre AS empleado, clientes.nombre AS nombre_cliente,clientes.apellido AS apellido_cliente,servicios.nombre AS servicio, reservas.fecha_reserva, reservas.hora_reserva
                             FROM reservas
                             JOIN empleados ON reservas.empleado_id = empleados.id
+                            JOIN clientes ON reservas.cliente_id = clientes.id 
                             JOIN servicios ON reservas.servicio_id = servicios.id
                             WHERE reservas.cliente_id = {cliente_id}""")
         reservas = self.cur.fetchall()
